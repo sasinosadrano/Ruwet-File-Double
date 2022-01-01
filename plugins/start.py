@@ -115,11 +115,12 @@ async def start_command(client: Client, message: Message):
                 pass
     else:
         buttons = [
-            [InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url=client.invitelink)],
+            [InlineKeyboardButton("ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ", callback_data="about")],
             [
-                InlineKeyboardButton("ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ", callback_data="about"),
-                InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close"),
+                InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url=client.invitelink),
+                InlineKeyboardButton("ɢʀᴏᴜᴘ", url=client.invitelink2),
             ],
+            [InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")],
         ]
         await message.reply_text(
             text=START_MSG.format(
@@ -142,7 +143,10 @@ async def start_command(client: Client, message: Message):
 @Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Client, message: Message):
     buttons = [
-        [InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url=client.invitelink)],
+        [
+            InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url=client.invitelink),
+            InlineKeyboardButton("ɢʀᴏᴜᴘ", url=client.invitelink2),
+        ],
     ]
     try:
         buttons.append(
